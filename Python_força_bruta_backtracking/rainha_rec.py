@@ -2,7 +2,7 @@
 O algoritmo dispõe n rainhas em um tabuleiro utilizando backtracking recursivo. 
 '''
 
-def Q_CAN(pos,queen,col):
+def Q_CAN(pos,queen,col): #verifica se é possível adicionar a rainha em dada posição
     i = 0
     while (i < queen):
         if pos[i]== col or abs(queen - i) == abs(col - pos[i]):

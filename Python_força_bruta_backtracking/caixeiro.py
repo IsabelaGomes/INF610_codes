@@ -6,13 +6,11 @@ def CAIXEIRO(n,D,ciclo,l,r,pack):
         while i < n: #calcula o comprimento do caminho
             comp += D[ciclo[i]-1][ciclo[i+1]-1]
             i += 1
-        aux = []
+        aux = [] #salva o ciclo 
         for i in ciclo:
             aux.append(i)
         pack.append((comp,aux))
-        #print('Ciclo: ' + str(ciclo))
-        #print('Distância total: '+ str(comp))
-        return pack
+        return pack #retorna a permutação com sua distância
         
     else:
         for i in range(l,r): #varre todos os valores excluindo o primeiro
@@ -23,16 +21,16 @@ def CAIXEIRO(n,D,ciclo,l,r,pack):
             aux = ciclo[l] 
             ciclo[l] = ciclo[i]
             ciclo[i] = aux
-        return pack
+        return pack #retorna a lista de permutações com suas distâncias
 
 def OTM_CAIXEIRO(pack,minimo,otimo):
-    for i in range(len(conjunto)):
-        if conjunto[i][0] <= minimo:
+    for i in range(len(conjunto)): #varre todos os valores
+        if conjunto[i][0] <= minimo: #identifica o mínimo
             teste = minimo
             minimo = conjunto[i][0]
-            if teste != minimo:
+            if teste != minimo: #se o minino recebe novo valor, reinia a lista de ciclos
                 otimo.clear()
-            otimo.append(conjunto[i][1])
+            otimo.append(conjunto[i][1]) #adiciona o ciclo hamiltoniano na lista de caminhos ótimos
     return otimo, minimo
 
 #n = 10

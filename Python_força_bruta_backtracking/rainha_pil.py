@@ -45,9 +45,9 @@ def Q_PIL(pos,n):
     q = c2 = 1
     while not aloc and q <= n: #faz o loop para todas as rainhas
         for c1 in range(c2,n+1):
+            #print(pos.p)
             if q == 2 and pos.size == 0: #verifica se já chegou na última solução
                 return
-            print(pos.p)
             if Q_CAN(pos,q,c1):
                 pos.push((q,c1))
                 aloc = True
