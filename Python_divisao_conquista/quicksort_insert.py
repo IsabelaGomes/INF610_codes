@@ -14,9 +14,9 @@ def HOARE(A,l,r):
   i = l + 1
   j = r
   while True:
-    while i <= j and A[i] <= p:
+    while i <= j and A[i] < p:
       i += 1
-    while i <= j and A[j] >= p:
+    while i <= j and A[j] > p:
       j -= 1
     if i <= j:
       A[i], A[j] = A[j], A[i]

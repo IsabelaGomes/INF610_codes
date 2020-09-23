@@ -28,16 +28,13 @@ def MERGESORT(A):
   if n > 1:
     B = A[:n//2]
     C = A[n//2:]
-    print(B,C)
     MERGESORT(B)
     MERGESORT(C)
     MERGE(B,C,A)
-    print(A)
 
-  return A
-
-A = [310, 285, 179, 652, 351, 423, 861, 254, 450, 520]
+A = [2,3,3,3,3,3,2,3,2]
 start = datetime.datetime.now()
 MERGESORT(A)
+print(A)
 end = datetime.datetime.now()
 print((end - start).total_seconds()*1000)

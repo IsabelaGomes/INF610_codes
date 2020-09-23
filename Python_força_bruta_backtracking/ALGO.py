@@ -11,7 +11,6 @@ def ALGO( n ): #considere n potência de 2.
 print(ALGO(2))
 print(ALGO(4))
 '''
-'''
 def ASTERISCO( n ): 
     if ( n > 0 ):
         ASTERISCO(n-1)
@@ -21,4 +20,4 @@ def ASTERISCO( n ):
         ASTERISCO(n-1)
         print('/',end='')
 ASTERISCO(4)
-'''
+

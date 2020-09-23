@@ -2,33 +2,26 @@ def HOARE(A,l,r):
   p = A[l]
   i = l + 1
   j = r
-  print('O pivô é ' + str(p))
   while True:
-    while i <= j and A[i] <= p:
+    print(A)
+    while i <= j and A[i] < p:
       i += 1
-    while i <= j and A[j] >= p:
+    while i <= j and A[j] > p:
       j -= 1
     if i <= j:
       A[i], A[j] = A[j], A[i]
     else:
       break
   A[l], A[j] = A[j], A[l]
-  print('\nA: ' + str(A))
-  return j
+  return j - 1
 
-def QUICKSORT_HOARE(A,l,r):
-  if l >= r:
-    return
-  s = HOARE(A,l,r)
-  QUICKSORT_HOARE(A,l,s-1)
-  QUICKSORT_HOARE(A,s+1,r)
+def MEDIANA(A,l,r):
+  s = 0
+  while s != (len(A)//2):
+    s = HOARE(A,l,r)
+    l += 1
+  print('A mediana é ', A[s])
 
-L = [6, 10, 14, 8, 2, 12, 4, 18, 16]
-n = len(L)
-print('\nA: ' + str(L))
-QUICKSORT_HOARE(L,0,n - 1)
-n = len(L)
-if n%2 == 0:
-  print('\nA mediana é ' + str((L[n//2] + L[n//2-1])/2))
-else:
-  print('\nA mediana é ' + str(L[n//2]))
+L = [6,10,14,8,2,12,4,18,16]
+MEDIANA(L,0,len(L)-1)
+
